@@ -37,3 +37,18 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
+
+
+
+
+
+
+
+
+
+
+Babal added into package.json act 9
+
+need to update scripts in package.json
+
+add the right plugins in webpack
