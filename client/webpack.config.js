@@ -24,6 +24,8 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin'
       })
+
+      // Need more plugins 
     ],
 
     module: {
