@@ -1,5 +1,7 @@
 import { openDB } from 'idb';
 
+// This file is to not only store but remove cash files that are unimportant
+
 const initdb = async () =>
   openDB('jate', 1, {
     upgrade(db) {
@@ -11,6 +13,8 @@ const initdb = async () =>
       console.log('jate database created');
     },
   });
+
+
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => console.error('putDb not implemented');

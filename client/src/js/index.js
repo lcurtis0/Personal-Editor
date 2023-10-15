@@ -31,3 +31,16 @@ if ('serviceWorker' in navigator) {
 } else {
   console.error('Service workers are not supported in this browser.');
 }
+
+// activity 15
+//  VVVVVV
+
+// // Append the new element to the target element
+// targetEl.appendChild(moduleContent);
+
+// // register a service worker
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker
+//     .register('./sw.js')
+//     .then((register) => console.log(register));
+// }
