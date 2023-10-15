@@ -26,6 +26,7 @@ THEN I find that the content in the text editor has been saved with IndexedDB
 
 WHEN I reopen the text editor after closing it
 THEN I find that the content in the text editor has been retrieved from our IndexedDB
+
 WHEN I click on the Install button
 THEN I download my web application as an icon on my desktop
 
@@ -37,3 +38,22 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
+
+
+
+
+
+
+
+
+
+
+Babal added into package.json act 9
+
+need to update scripts in package.json
+
+add the right plugins in webpack
+
+npm install --save-dev webpack-dev-server
+
+npm run start:dev
