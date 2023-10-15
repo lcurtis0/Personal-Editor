@@ -52,3 +52,5 @@ Babal added into package.json act 9
 need to update scripts in package.json
 
 add the right plugins in webpack
+
+npm install --save-dev webpack-dev-server

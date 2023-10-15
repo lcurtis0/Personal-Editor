@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// This is middleware sending information to the dist file in client directory
+
 app.use(express.static('../client/dist'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
