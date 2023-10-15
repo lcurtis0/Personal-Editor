@@ -51,32 +51,34 @@ module.exports = () => {
       new MiniCssExtractPlugin(),
 
       new GenerateSW({
-             // Exclude meaning not to pre cache images 
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+        // Exclude meaning not to pre cache images 
+        exclude: [/\.(?:png|jpg|jpeg|svg)$/],
 
-      // Define runtime caching rules.
-      runtimeCaching: [{
-        // We can have images that can work offline. This will be implemented into the cashing strategy
+        // Define runtime caching rules.
+        runtimeCaching: [{
+          // We resource to the cache when requested, can work with dfferent stategies and runtimes are independent
+          // credit : https://developer.chrome.com/docs/workbox/caching-resources-during-runtime/
 
-        // Match any request that ends with .png, .jpg, .jpeg or .svg.
-        // whether the configured handler can have any response for requests that don't match one the pre fetch URLs 
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+          // We can have images that can work offline. This will be implemented into the cashing strategy
 
-        // Apply a cache-first strategy.
-        handler: 'CacheFirst',
+          // whether the configured handler can have any response for requests that don't match one the pre fetch URLs 
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
 
-        options: {
-          // Use a custom cache name.
-          cacheName: 'images',
+          // This means look into the cache first, if you have it, use it. If not request the resource
+          handler: 'CacheFirst',
 
-          // Only cache 2 images.
-          expiration: {
-            maxEntries: 2,
+          options: {
+            // Use a custom cache name.
+            cacheName: 'images',
+
+            // Only cache 2 images.
+            expiration: {
+              maxEntries: 2,
+            },
           },
-        },
-      }],
+        }],
       })
-      
+
     ],
 
     module: {
