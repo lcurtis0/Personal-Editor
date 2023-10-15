@@ -34,6 +34,7 @@ module.exports = () => {
     },
     plugins: [
       // This plugin auto matically adds an index.html file with a script to bundle.js in dist folder
+      // This plugin claims adds new service workers to stay and rids of all old service workers
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Webpack Plugin'
@@ -49,6 +50,32 @@ module.exports = () => {
       // This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
       new MiniCssExtractPlugin(),
 
+      new GenerateSW({
+             // Exclude meaning not to pre cache images 
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+      // Define runtime caching rules.
+      runtimeCaching: [{
+        // We can have images that can work offline. This will be implemented into the cashing strategy
+
+        // Match any request that ends with .png, .jpg, .jpeg or .svg.
+        // whether the configured handler can have any response for requests that don't match one the pre fetch URLs 
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+        // Apply a cache-first strategy.
+        handler: 'CacheFirst',
+
+        options: {
+          // Use a custom cache name.
+          cacheName: 'images',
+
+          // Only cache 2 images.
+          expiration: {
+            maxEntries: 2,
+          },
+        },
+      }],
+      })
       
     ],
 
