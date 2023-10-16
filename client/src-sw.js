@@ -32,7 +32,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 registerRoute();
 
 // ------------------------------------------------------
-const NEW_CACHE = 'cache-v1';
+const CACHE_NEW = 'cache-v1';
 var assets = [
   '/',
   '/index.html',
@@ -42,7 +42,7 @@ var assets = [
 ];
 // 1. install assets
 self.addEventListener('cacheAssets', (e) => e.waitUntil(
-  caches.open(NEW_CACHE).then((cache) => cache.addAll(assets).then(
+  caches.open(CACHE_NEW).then((cache) => cache.addAll(assets).then(
     console.log('All assets cached')))
 )
 );
@@ -55,7 +55,7 @@ self.addEventListener('activateAssets', (e) =>
     caches.keys().then((keyList) =>
       Promise.all(
         keyList.map((key) => {
-          if (key !== NEW_CACHE) {
+          if (key !== CACHE_NEW) {
             console.log("Key not found for this Cache");
             return caches.delete(key);
           }
