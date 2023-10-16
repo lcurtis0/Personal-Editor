@@ -40,14 +40,6 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin'
       }),
-
-      // Need more plugins 
-
-      new webpack.BannerPlugin({
-        banner: (yourVariable) => {
-          return `yourVariable: ${yourVariable}`;
-        },
-      }),
       // This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
       new MiniCssExtractPlugin(),
 
@@ -90,8 +82,8 @@ module.exports = () => {
           use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'images/resource',
+          test: /\.m?js$/,
+          type: /node_modules/,
         },
         {
           test: /\.m?js$/,
@@ -100,6 +92,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },

@@ -31,52 +31,67 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 // TODO: Implement asset caching
 // registerRoute();
 
-// ------------------------------------------------------
-// cache-v1 
-const CACHE_NEW = 'cache-v1';
-var assets = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/index.js',
-  '/images/logo.png',
-];
-// 1. install assets
-self.addEventListener('cacheAssets', (e) => e.waitUntil(
-  caches.open(CACHE_NEW).then((cache) => cache.addAll(assets).then(
-    console.log('All assets cached')))
-)
+registerRoute(
+  // Here we define the callback function that will filter the requests we want to cache (in this case, JS and CSS files)
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  new StaleWhileRevalidate({
+    // Name of the cache storage.
+    cacheName: 'asset-cache',
+    plugins: [
+      // This plugin will cache responses with these headers to a maximum-age of 30 days
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
 );
 
-// 2. activate assets
-// the service worker is activated after install.
+// // ------------------------------------------------------
+// // cache-v1 
+// const CACHE_NEW = 'cache-v1';
+// var assets = [
+//   '/',
+//   '/index.html',
+//   '/css/style.css',
+//   '/index.js',
+//   '/images/logo.png',
+// ];
+// // 1. install assets
+// self.addEventListener('cacheAssets', (e) => e.waitUntil(
+//   caches.open(CACHE_NEW).then((cache) => cache.addAll(assets).then(
+//     console.log('All assets cached')))
+// )
+// );
+
+// // 2. activate assets
+// // the service worker is activated after install.
 
 
-//It is going through every key in the keylist 
-self.addEventListener('activateAssets', (e) =>
-  e.waitUntil(
-    caches.keys().then((keyList) =>
-      Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NEW) {
-            console.log("Key not found for this Cache");
-            return caches.delete(key);
-          }
-        })
-      )
-    )
-  )
-);
+// //It is going through every key in the keylist 
+// self.addEventListener('activateAssets', (e) =>
+//   e.waitUntil(
+//     caches.keys().then((keyList) =>
+//       Promise.all(
+//         keyList.map((key) => {
+//           if (key !== CACHE_NEW) {
+//             console.log("Key not found for this Cache");
+//             return caches.delete(key);
+//           }
+//         })
+//       )
+//     )
+//   )
+// );
 
-// 3. claim assets
-self.addEventListener('activateAssets', (e) => {
-  e.waitUntil(clients.claim());
-});
-// "simple cache-first network-first strategy"
-// This is to check check cache responses. If none then it fetches it 
-self.addEventListener('fetch', (e) =>
-  e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)))
-);
+// // 3. claim assets
+// self.addEventListener('activateAssets', (e) => {
+//   e.waitUntil(clients.claim());
+// });
+// // "simple cache-first network-first strategy"
+// // This is to check check cache responses. If none then it fetches it 
+// self.addEventListener('fetch', (e) =>
+//   e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)))
+// );
 
 // -----------------------------------------------
 // Use activity 15

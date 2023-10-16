@@ -28,9 +28,9 @@ export const putDb = async (content) => {
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: 1, text: content });
+  const request = store.put({ id: 1, value: content });
   const result = await request;
-  console.log('Data saved to the database', result);
+  console.log('Data saved to the database', result.value);
 };
 
 
@@ -50,12 +50,17 @@ export const getDb = async () => {
   const store = tx.objectStore('jate');
 
   // Use the .get() method to get a piece of data from the database based on the id.
-  const request = store.get(id);
+  const request = store.get();
 
   // Get confirmation of the request.
   const result = await request;
-  console.log('result', result);
-  return result.text;
+  result
+    ? console.log('Data retrieved from the database', result.value)
+    : console.log('Data not found in the database');
+  // Check if a variable is defined and if it is, return it. 
+  return result?.value;
+  // console.log('result', result.value);
+  // return result.value;
 }
 
 
