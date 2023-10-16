@@ -97,7 +97,7 @@ self.addEventListener('fetch', (e) =>
 // -----------------------------------------------
 
 // all urls will be added to cache
-
+/*
 function cacheAssets(assets) {
   return new Promise(function (resolve, reject) {
     // open cache
@@ -138,3 +138,5 @@ cacheAssets(assets)
 
 // Credit to Medium for providing code 
 // https://medium.com/digitalwerft/asset-caching-with-service-worker-c40dcda43842
+
+*/
