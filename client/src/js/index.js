@@ -3,7 +3,6 @@ import { Workbox } from 'workbox-window';
 import Editor from './editor';
 import { putDb, getDb } from './database';
 import '../css/style.css';
-import 
 
 const main = document.querySelector('#main');
 main.innerHTML = '';
@@ -31,7 +30,7 @@ if (typeof editor === 'undefined') {
 // referenced from activity 23
 
 const Area = document.getElementById('text-editor');
-
+/*
 Area.addEventListener('submit', (event) => {
   // Handle the form data
   event.preventDefault();
@@ -69,6 +68,7 @@ const fetchList = async () => {
 };
 
 fetchList();
+*/
 
 // ------------------------
 
@@ -77,6 +77,7 @@ if ('serviceWorker' in navigator) {
   // register workbox service worker
   const workboxSW = new Workbox('/src-sw.js');
   workboxSW.register();
+  // This okay because Indexxed DB it can be saved as an object 
   console.log("SW registered: " + workboxSW);
 } else {
   console.error('Service workers are not supported in this browser.' + registerationError);
