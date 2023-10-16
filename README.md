@@ -40,20 +40,14 @@ WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
 
 
+Insatll.js - before install
+Insatll.js - butinsall
+Insatll.js - appinstalled
 
+header.js - adding header
 
+check if database works 
 
+check if navigator function works
 
-
-
-
-
-Babal added into package.json act 9
-
-need to update scripts in package.json
-
-add the right plugins in webpack
-
-npm install --save-dev webpack-dev-server
-
-npm run start:dev
+Finally send off to heroku

@@ -29,9 +29,10 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-registerRoute();
+// registerRoute();
 
 // ------------------------------------------------------
+// cache-v1 
 const CACHE_NEW = 'cache-v1';
 var assets = [
   '/',
@@ -50,6 +51,8 @@ self.addEventListener('cacheAssets', (e) => e.waitUntil(
 // 2. activate assets
 // the service worker is activated after install.
 
+
+//It is going through every key in the keylist 
 self.addEventListener('activateAssets', (e) =>
   e.waitUntil(
     caches.keys().then((keyList) =>
