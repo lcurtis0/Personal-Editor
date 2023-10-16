@@ -5,6 +5,7 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 // ------------------------------------
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
 
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
@@ -68,13 +69,8 @@ module.exports = () => {
           handler: 'CacheFirst',
 
           options: {
-            // Use a custom cache name.
+            // generic cache name
             cacheName: 'images',
-
-            // Only cache 2 images.
-            expiration: {
-              maxEntries: 2,
-            },
           },
         }],
       })

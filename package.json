@@ -1,5 +1,5 @@
 {
-  "name": "readandwrite",
+  "name": "JATE",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,7 +9,6 @@
     "server": "cd server server.js --ignore client",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start"
   },
   "keywords": [],
@@ -21,10 +20,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4",
-    "css-loader": "^6.5.1",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.64.4",
-    "webpack-cli": "^4.9.1"
+    "mini-css-extract-plugin": "^2.7.6",
+    "nodemon": "^2.0.4"
   }
 }
