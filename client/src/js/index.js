@@ -1,8 +1,9 @@
 import { Workbox } from 'workbox-window';
 // Workbox make sthe implementation of service workers easier by saying which resources we want to cache and how
 import Editor from './editor';
-import './database';
+import { putDb, getDb } from './database';
 import '../css/style.css';
+import 
 
 const main = document.querySelector('#main');
 main.innerHTML = '';

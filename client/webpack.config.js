@@ -51,7 +51,7 @@ module.exports = () => {
       // This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
       new MiniCssExtractPlugin(),
 
-      new GenerateSW({
+      new WorkboxPlugin.GenerateSW({
         // Exclude meaning not to pre cache images 
         exclude: [/\.(?:png|jpg|jpeg|svg)$/],
 
