@@ -15,8 +15,6 @@ const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
 
-// A Cache-Manifest but does not allow to cache assets from other servers and requires you to have a static file with URLs
-
 const pageCache = new CacheFirst({
   cacheName: 'page-cache',
   plugins: [
