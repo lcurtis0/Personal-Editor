@@ -28,9 +28,9 @@ export const putDb = async (content) => {
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: 1, value: content });
+  const request = store.put({ id: 1, text: content });
   const result = await request;
-  console.log('Data saved to the database', result.value);
+  console.log('Data saved to the database', result.text);
 };
 
 
@@ -55,7 +55,7 @@ export const getDb = async () => {
   // Get confirmation of the request.
   const result = await request;
   result
-    ? console.log('Data retrieved from the database', result.value)
+    ? console.log('Data retrieved from the database', result.text)
     : console.log('Data not found in the database');
   // Check if a variable is defined and if it is, return it. 
   return result?.value;
