@@ -1,3 +1,8 @@
+// SW .js acts as a background JS file that works along side with the other JS files
+// This helps with interceptiing network requests 
+// Any request for a resource such as an image will be intercepted and sent somewhere else
+// This will also be for caching data 
+
 const { StaleWhileRevalidate } = require('workbox-strategies');
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
 const { CacheFirst } = require('workbox-strategies');
