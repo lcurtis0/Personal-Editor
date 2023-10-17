@@ -1,53 +1,50 @@
 # Personal-Editor
 
+# Description
 
-GIVEN a text editor web application
+This files are created to complete the Module 19 challenge-19
 
-WHEN I open my application in my editor
-THEN I should see a client server folder structure 
+I want to have an app Whaere I can edit code and then download into a file 
 
-WHEN I run `npm run start` from the root directory
-THEN I find that my application should start up the backend and serve the client ✅
+This is so that users can quickly edit code without using IDE 
 
-WHEN I run the text editor application from my terminal
-THEN I find that my JavaScript files have been bundled using webpack ✅
+I learned for applications there has to be a severe side and client side. One side for recieving informationa and one for recording information in a database 
 
-WHEN I run my webpack plugins
-THEN I find that I have a generated HTML file, service worker, and a manifest file ✅
+Table of Contents
+- [Description](#Decription)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Credits](#Credits)
+- [License](#License)
+- [Deployment](#Deployment)
 
-WHEN I use next-gen JavaScript in my application
-THEN I find that the text editor still functions in the browser without errors 
+N/A
 
-WHEN I open the text editor
-THEN I find that IndexedDB has immediately created a database storage ✅
+# Usage
 
-WHEN I enter content and subsequently click off of the DOM window
-THEN I find that the content in the text editor has been saved with IndexedDB 
+Must "npm i" then
 
-WHEN I reopen the text editor after closing it
-THEN I find that the content in the text editor has been retrieved from our IndexedDB
+Users have to run "npm run start" to activate client and server package.jsons 
 
-WHEN I click on the Install button
-THEN I download my web application as an icon on my desktop 
-
-WHEN I load my web application
-THEN I should have a registered service worker using workbox
-
-WHEN I register a service worker
-THEN I should have my static assets pre cached upon loading along with subsequent pages and static assets ✅
-
-WHEN I deploy to Heroku
-THEN I should have proper build scripts for a webpack application
+Here is the video
 
 
-Insatll.js - before install
-Insatll.js - butinsall
-Insatll.js - appinstalled
+# Credits
 
-header.js - adding header
+N/A
 
-check if database works 
+# License
 
-check if navigator function works
+'![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)'
 
-Finally send off to heroku
+# Deployment
+Evaluated environment url: https://lcurtis0.github.io/MongoDB-Network/
+
+Badges
+N/A
+
+How to Contribute
+N/A
+
+Tests
+N/A

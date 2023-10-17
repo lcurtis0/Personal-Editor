@@ -8,8 +8,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
+// Configure workbox plugins for a service worker and manifest file.
+// Also added CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
@@ -65,31 +65,6 @@ module.exports = () => {
           },
         ],
       }),
-      /*
-        new WorkboxPlugin.GenerateSW({
-          // Exclude meaning not to pre cache images 
-          exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-  
-          // Define runtime caching rules.
-          runtimeCaching: [{
-            // We resource to the cache when requested, can work with dfferent stategies and runtimes are independent
-            // credit : https://developer.chrome.com/docs/workbox/caching-resources-during-runtime/
-  
-            // We can have images that can work offline. This will be implemented into the cashing strategy
-  
-            // whether the configured handler can have any response for requests that don't match one the pre fetch URLs 
-            urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-  
-            // This means look into the cache first, if you have it, use it. If not request the resource
-            handler: 'CacheFirst',
-  
-            options: {
-              // generic cache name
-              cacheName: 'images',
-            },
-          }],
-        })
-  */
     ],
 
     module: {

@@ -20,7 +20,7 @@ const initdb = async () =>
 
 
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
+// PUT Db to uddate the information for new edits
 export const putDb = async (content) => {
 
   // ---------------------------------
@@ -34,34 +34,21 @@ export const putDb = async (content) => {
 };
 
 
-// TODO: Add logic for a method that gets all the content from the database
+// GET Db to recieve the text information
 export const getDb = async () => {
 
   const id = 1;
   console.log('GET from the database');
-
-  // Create a connection to the database database and version we want to use.
   const jateDb = await openDB('jate', 1);
-
-  // Create a new transaction and specify the database and data privileges.
   const tx = jateDb.transaction('jate', 'readonly');
-
-  // Open up the desired object store.
   const store = tx.objectStore('jate');
-
-  // Use the .get() method to get a piece of data from the database based on the id.
   const request = store.get();
-
-  // Get confirmation of the request.
   const result = await request;
   result
     ? console.log('Data retrieved from the database', result.text)
     : console.log('Data not found in the database');
   // Check if a variable is defined and if it is, return it. 
-  return result?.value;
-  // console.log('result', result.value);
-  // return result.value;
+  return result?.text;
 }
-
 
 initdb();

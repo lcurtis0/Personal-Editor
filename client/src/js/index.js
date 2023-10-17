@@ -46,19 +46,4 @@ if ('serviceWorker' in navigator) {
 
 // If the service worker is in navigator then register a new service worker else console not supported
 
-// Action may not be needed 
-
-// activity 15
-//  VVVVVV
-
-// // Append the new element to the target element
-// targetEl.appendChild(moduleContent);
-
-// // register a service worker
-// if ('serviceWorker' in navigator) {
-//   navigator.serviceWorker
-//     .register('./sw.js')
-//     .then((register) => console.log(register));
-// }
-// ---------------------------------------------------
 
