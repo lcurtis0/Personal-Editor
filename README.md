@@ -40,6 +40,8 @@ N/A
 # Deployment
 Evaluated environment url: https://lcurtis0.github.io/Personal-Editor/
 
+Heroku: https://secure-peak-34584-9e209930b6fd.herokuapp.com/
+
 Badges
 N/A
 
