@@ -28,6 +28,7 @@ Users have to run "npm run start" to activate client and server package.jsons
 
 Here is the video
 
+https://drive.google.com/file/d/1xp9mE4AaJ-couQAEzCVXRVqo3K6zmzM9/view
 
 # Credits
 
