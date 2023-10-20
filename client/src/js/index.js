@@ -7,7 +7,7 @@ import '../css/style.css';
 const main = document.querySelector('#main');
 main.innerHTML = '';
 
-// Just a loading indicator 
+// Just a loading indicator this is only for front end
 const loadSpinner = () => {
   const spinner = document.createElement('div');
   spinner.classList.add('spinner');
