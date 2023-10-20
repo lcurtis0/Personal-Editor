@@ -29,6 +29,8 @@ const pageCache = new CacheFirst({
 
 warmStrategyCache({
   urls: ['/index.html', '/'],
+  // A caching strategy is an algorithm for when to cache a resource
+  // In this case pageCache saves the data ( The one object ) each time it comes to the website (jate cache)
   strategy: pageCache,
 });
 
@@ -39,7 +41,7 @@ registerRoute(
 
 registerRoute(
   // Here we define the callback function that will filter the requests we want to cache (in this case, JS and CSS files)
-  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  ({ request }) => ['style', 'script', 'worker', 'image'].includes(request.destination),
   new StaleWhileRevalidate({
     // Name of the cache storage.
     cacheName: 'asset-cache',

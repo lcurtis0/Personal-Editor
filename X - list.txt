@@ -1,0 +1,60 @@
+
+
+Though you have submitted a link to the deployed application on Heroku, it displays a Heroku error when I load your application in the browser. You can learn more about Heroku deployment here [Heroku Deployment Guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide)
+ 
+For deployment related errors you can check the Heroku logs to identify the root cause of the errors here [Heroku Logging] ("https://devcenter.heroku.com/articles/logging").
+  
+When your application was loaded in the browser, there were multiple errors in the Chrome Developer Tools console:"GET http://../assets/icons/icon_96x96.png 404 (Not Found)" 
+ 
+"Uncaught (in promise) TypeError: Failed to execute 'get' on 'IDBObjectStore': 1 argument required, but only 0 present".
+
+The "icon" in the top-right corner of the page was missing.
+ 
+The generated manifest.json file had errors.
+ 
+In the console.log statement, you are printing the value stored in the object store. Good job! When retrieving data from the "getDb" method, it would be a good idea to retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument(line #45).
+   
+At the same time, you have used the "optional chaining" operator to return the data effectively. One way to check if the IndexedDB functionality is working as expected is: after entering the data in the editor, focus out of the application to save the data, focus back in, clear the LocalStorage cache (in the Application Tab) and finally reload the application; the stored data should get loaded.
+    
+    In the file "client\webpack.config.js", MiniCssExtractPlugin is a third-party package maintained by community members. It potentially does not have the same support, security policy, or license as Webpack, and it is not maintained by Webpack [source: https://webpack.js.org/plugins/mini-css-extract-plugin/]. In the "module"/"rules"/"use" options, replace MiniCssExtractPlugin with 'style-loader'. ✅
+     
+    The "devtool" and "devServer" configurations are not necessary for this assignment. (???)
+     
+    Since a default optimization is already part of the webpack config, you could remove the "optimization" configuration as well. (???)
+    
+    The WebpackPwaManifest plugin is a webpack plugin that generates a 'manifest.json' for your Progressive Web Application, with auto icon resizing and fingerprinting support. 
+       
+    You have defined the "background_color" and "theme_color" options as part of the plugin configuration. However it is missing the options "fingerprints" and "inject". Please ensure they are part of the configuration. Information.It has proper configuration for the "start_url" and "publicPath" parameters. ✅
+    
+    For proper plugin configuration, please check out "Mini project" activity #28 for guidance. You can check out the WebpackPwaManifest documentation here [WebpackPwaManifest plugin] (https://www.npmjs.com/package/webpack-pwa-manifest) for more information. 
+    
+    The client file "client\src-sw.js" is responsible for registering service workers. You have implemented the "registerRoute" method to enable static asset caching using the StaleWhileRevalidate object. 
+    You have also imported the StaleWhileRevalidate object into your Service Worker module from the 'workbox-strategies' module. Good job! 
+    Make sure you explicitly register the "image" type as part of the "registerRoute" functionality. ✅
+    
+    The "client/src/js/install.js" file has event handlers for the `beforeinstallprompt` event, a click event handler on the `buttonInstall` element, and a handler for the `appinstalled` event. 
+    [Don't know what this means in terms of improvement]
+    
+    Please add quality comments to all your Javascript files. Comments enhance the reader's understanding of the code rather than stating the obvious, and they communicate the developer's thought process very effectively. ✅
+     
+      That way, someone reading your commit messages can understand how the code has evolved without looking at the files themselves. 
+      
+      It is not the number of commit messages that is significant, but the quality of the commit messages. 
+      
+      Please include a valid link and a screenshot of the deployed application in your application README.md file. 
+      
+      Clean up your description and make sure it's error-free. ✅
+      
+      Summary:
+
+    * Deploy your application to Heroku and submit a valid link to the deployed application on Heroku.
+      
+    * In the file "client\src\js\database.js", when retrieving data from the "getDb" method, retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument.
+    
+    * In the file "client\webpack.config.js",MiniCssExtractPlugin can be removed.In the "module"/"rules"/"use" options, replace MiniCssExtractPlugin with 'style-loader'.Please remove "devtool", "devServer" and "optimization" configurations as they are not required as part of this assignment. Add "fingerprints" and "inject" attributes to the WebpackPwaManifest plugin configuration. 
+    
+    * In the client file "client\src-sw.js", make sure you explicitly register the "image" type in the "registerRoute" method. 
+    
+    * Add quality comments to all Javascript files. 
+    
+    * Add a screenshot and link to the deployed application to your README.md file and clean up the description. 

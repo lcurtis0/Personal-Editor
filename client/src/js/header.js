@@ -9,4 +9,6 @@ just another text editor
 */                          
 `;
 
+// This should show on file when empty by default
+
 export { header };

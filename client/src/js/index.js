@@ -7,7 +7,7 @@ import '../css/style.css';
 const main = document.querySelector('#main');
 main.innerHTML = '';
 
-// Just a loading indicator 
+// Just a loading indicator this is only for front end
 const loadSpinner = () => {
   const spinner = document.createElement('div');
   spinner.classList.add('spinner');
@@ -24,14 +24,6 @@ const editor = new Editor();
 if (typeof editor === 'undefined') {
   loadSpinner();
 }
-
-// ------------------------
-// this might be necessary
-// referenced from activity 23
-
-const Area = document.getElementById('text-editor');
-
-// ------------------------
 
 // Check if service workers are supported
 if ('serviceWorker' in navigator) {
