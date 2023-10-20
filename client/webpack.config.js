@@ -23,7 +23,7 @@ module.exports = () => {
     },
     // The output is to send the script in the index.html in dist. This can cahnge by filename
     output: {
-      filename: '[name].bundle.js',
+      filename: 'Personal-Editor.bundle.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: './',
     },
@@ -43,19 +43,24 @@ module.exports = () => {
         swDest: 'src-sw.js',
       }),
 
+      //webpack-pwa-manifest is a webpack plugin that generates a 'manifest.json' for your Progressive Web Application, with auto icon resizing and fingerprinting support.
       new WebpackPwaManifest({
-        name: 'JATE',
+        name: 'JATE Text Editor',
         short_name: 'JATE',
-        description: 'Text editor',
+        description: 'Text editor for the browser',
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
+        fingerprints: true,
         start_url: './',
         publicPath: './',
+        // Inject ensures proper configuration for the "start_url" and "publicPath" parameters.
+        inject: true,
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
+            src: path.resolve('client/src/images/logo.png'),
+            // This gives options to multiple sizes upon shinking the window
             sizes: [96, 128, 192, 256, 384, 512],
-            destination: path.join('src', 'icons'),
+            "type": "image/png",
           },
         ],
       }),
@@ -65,7 +70,6 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,
-          use: ["css-loader"],
         },
         {
           test: /\.m?js$/,

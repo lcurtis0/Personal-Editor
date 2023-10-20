@@ -25,14 +25,6 @@ if (typeof editor === 'undefined') {
   loadSpinner();
 }
 
-// ------------------------
-// this might be necessary
-// referenced from activity 23
-
-const Area = document.getElementById('text-editor');
-
-// ------------------------
-
 // Check if service workers are supported
 if ('serviceWorker' in navigator) {
   // register workbox service worker

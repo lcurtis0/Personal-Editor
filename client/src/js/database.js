@@ -1,6 +1,6 @@
 import { openDB } from 'idb';
 
-// This file is to not only store but remove cash files that are unimportant
+// This file is to not only store but remove cash files that are unimportant but add new ones once updated
 
 const initdb = async () =>
   openDB('jate', 1, {
@@ -25,9 +25,11 @@ export const putDb = async (content) => {
 
   // ---------------------------------
   console.log('PUT to the database');
+  // Under normal situations it would be ('jate', id). However, since we are trying to remeber one object 1 is all thats needed
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
+  // Text = Value key
   const request = store.put({ id: 1, text: content });
   const result = await request;
   console.log('Data saved to the database', result.text);

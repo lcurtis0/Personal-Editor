@@ -4,7 +4,7 @@
 
 This files are created to complete the Module 19 challenge-19
 
-I want to have an app Whaere I can edit code and then download into a file 
+The goal of this app is code using a browser and insatll a file once I'm done. It can also save what I previously typed.
 
 This is so that users can quickly edit code without using IDE 
 

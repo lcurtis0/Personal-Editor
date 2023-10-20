@@ -16,23 +16,26 @@ In the console.log statement, you are printing the value stored in the object st
    
 At the same time, you have used the "optional chaining" operator to return the data effectively. One way to check if the IndexedDB functionality is working as expected is: after entering the data in the editor, focus out of the application to save the data, focus back in, clear the LocalStorage cache (in the Application Tab) and finally reload the application; the stored data should get loaded.
     
-    In the file "client\webpack.config.js", MiniCssExtractPlugin is a third-party package maintained by community members. It potentially does not have the same support, security policy, or license as Webpack, and it is not maintained by Webpack [source: https://webpack.js.org/plugins/mini-css-extract-plugin/]. In the "module"/"rules"/"use" options, replace MiniCssExtractPlugin with 'style-loader'. 
+    In the file "client\webpack.config.js", MiniCssExtractPlugin is a third-party package maintained by community members. It potentially does not have the same support, security policy, or license as Webpack, and it is not maintained by Webpack [source: https://webpack.js.org/plugins/mini-css-extract-plugin/]. In the "module"/"rules"/"use" options, replace MiniCssExtractPlugin with 'style-loader'. ✅
      
-    The "devtool" and "devServer" configurations are not necessary for this assignment. 
+    The "devtool" and "devServer" configurations are not necessary for this assignment. (???)
      
-    Since a default optimization is already part of the webpack config, you could remove the "optimization" configuration as well.
+    Since a default optimization is already part of the webpack config, you could remove the "optimization" configuration as well. (???)
     
     The WebpackPwaManifest plugin is a webpack plugin that generates a 'manifest.json' for your Progressive Web Application, with auto icon resizing and fingerprinting support. 
        
-    You have defined the "background_color" and "theme_color" options as part of the plugin configuration. However it is missing the options "fingerprints" and "inject". Please ensure they are part of the configuration. Information.It has proper configuration for the "start_url" and "publicPath" parameters. 
+    You have defined the "background_color" and "theme_color" options as part of the plugin configuration. However it is missing the options "fingerprints" and "inject". Please ensure they are part of the configuration. Information.It has proper configuration for the "start_url" and "publicPath" parameters. ✅
     
-    They point to the root URL and the path is prefixed with "." Excellent! For proper plugin configuration, please check out "Mini project" activity #28 for guidance. You can check out the WebpackPwaManifest documentation here [WebpackPwaManifest plugin] (https://www.npmjs.com/package/webpack-pwa-manifest) for more information. 
+    For proper plugin configuration, please check out "Mini project" activity #28 for guidance. You can check out the WebpackPwaManifest documentation here [WebpackPwaManifest plugin] (https://www.npmjs.com/package/webpack-pwa-manifest) for more information. 
     
-    The client file "client\src-sw.js" is responsible for registering service workers. You have implemented the "registerRoute" method to enable static asset caching using the StaleWhileRevalidate object. You have also imported the StaleWhileRevalidate object into your Service Worker module from the 'workbox-strategies' module. Good job! Make sure you explicitly register the "image" type as part of the "registerRoute" functionality. The "client/src/js/install.js" file has event handlers for the `beforeinstallprompt` event, a click event handler on the `buttonInstall` element, and a handler for the `appinstalled` event. 
+    The client file "client\src-sw.js" is responsible for registering service workers. You have implemented the "registerRoute" method to enable static asset caching using the StaleWhileRevalidate object. 
+    You have also imported the StaleWhileRevalidate object into your Service Worker module from the 'workbox-strategies' module. Good job! 
+    Make sure you explicitly register the "image" type as part of the "registerRoute" functionality. ✅
     
-    Please add quality comments to all your Javascript files. Comments enhance the reader's understanding of the code rather than stating the obvious, and they communicate the developer's thought process very effectively. 
+    The "client/src/js/install.js" file has event handlers for the `beforeinstallprompt` event, a click event handler on the `buttonInstall` element, and a handler for the `appinstalled` event. 
+    [Don't know what this means in terms of improvement]
     
-    While comments may extend the length of your code, they increase its maintainability, not only by you but by anyone who has to maintain your code going forward. Ensure that the comments describe the underlying code. Try to be as specific as possible when commenting on your code. 
+    Please add quality comments to all your Javascript files. Comments enhance the reader's understanding of the code rather than stating the obvious, and they communicate the developer's thought process very effectively. ✅
      
       That way, someone reading your commit messages can understand how the code has evolved without looking at the files themselves. 
       
@@ -40,9 +43,7 @@ At the same time, you have used the "optional chaining" operator to return the d
       
       Please include a valid link and a screenshot of the deployed application in your application README.md file. 
       
-      Clean up your description and make sure it's error-free. 
-      
-      The file serves as a storefront for your application. It should be clean and presentable to anyone who wants to learn about your application's functionality. 
+      Clean up your description and make sure it's error-free. ✅
       
       Summary:
 
