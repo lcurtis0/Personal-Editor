@@ -2,14 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-
-// ------------------------------------
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 
 
 // Configure workbox plugins for a service worker and manifest file.
-// Also added CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
@@ -41,8 +37,6 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin'
       }),
-      // This plugin extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
-      new MiniCssExtractPlugin(),
 
       new InjectManifest({
         swSrc: './src-sw.js',
@@ -71,7 +65,7 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,
-          use: [MiniCssExtractPlugin.loader, "css-loader"],
+          use: ["css-loader"],
         },
         {
           test: /\.m?js$/,
