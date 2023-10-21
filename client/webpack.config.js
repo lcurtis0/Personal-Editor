@@ -23,7 +23,7 @@ module.exports = () => {
     },
     // The output is to send the script in the index.html in dist. This can cahnge by filename
     output: {
-      filename: 'Personal-Editor.bundle.js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: './',
     },
@@ -60,7 +60,7 @@ module.exports = () => {
             src: path.resolve('client/src/images/logo.png'),
             // This gives options to multiple sizes upon shinking the window
             sizes: [96, 128, 192, 256, 384, 512],
-            "type": "image/png",
+            destination: path.join('assets', 'icons')
           },
         ],
       }),
@@ -70,11 +70,13 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
+
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],

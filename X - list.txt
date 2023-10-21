@@ -2,7 +2,7 @@
 
 Though you have submitted a link to the deployed application on Heroku, it displays a Heroku error when I load your application in the browser. You can learn more about Heroku deployment here [Heroku Deployment Guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/heroku/heroku-deployment-guide)
  
-For deployment related errors you can check the Heroku logs to identify the root cause of the errors here [Heroku Logging] ("https://devcenter.heroku.com/articles/logging").
+For deployment related errors you can check the Heroku logs to identify the root cause of the errors here [Heroku Logging] ("https://devcenter.heroku.com/articles/logging"). 
   
 When your application was loaded in the browser, there were multiple errors in the Chrome Developer Tools console:"GET http://../assets/icons/icon_96x96.png 404 (Not Found)" 
  
@@ -12,9 +12,10 @@ The "icon" in the top-right corner of the page was missing.
  
 The generated manifest.json file had errors.
  
-In the console.log statement, you are printing the value stored in the object store. Good job! When retrieving data from the "getDb" method, it would be a good idea to retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument(line #45).
+In the console.log statement, you are printing the value stored in the object store. Good job! When retrieving data from the "getDb" method, it would be a good idea to retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument(line #45). ✅
    
-At the same time, you have used the "optional chaining" operator to return the data effectively. One way to check if the IndexedDB functionality is working as expected is: after entering the data in the editor, focus out of the application to save the data, focus back in, clear the LocalStorage cache (in the Application Tab) and finally reload the application; the stored data should get loaded.
+At the same time, you have used the "optional chaining" operator to return the data effectively. One way to check if the IndexedDB functionality is working as expected is: after entering the data in the editor, focus out of the application to save the data, focus back in, clear the LocalStorage cache (in the Application Tab) and finally reload the application; the stored data should get loaded. 
+[ Check if it stays when you refresh the page ]
     
     In the file "client\webpack.config.js", MiniCssExtractPlugin is a third-party package maintained by community members. It potentially does not have the same support, security policy, or license as Webpack, and it is not maintained by Webpack [source: https://webpack.js.org/plugins/mini-css-extract-plugin/]. In the "module"/"rules"/"use" options, replace MiniCssExtractPlugin with 'style-loader'. ✅
      
@@ -36,10 +37,8 @@ At the same time, you have used the "optional chaining" operator to return the d
     [Don't know what this means in terms of improvement]
     
     Please add quality comments to all your Javascript files. Comments enhance the reader's understanding of the code rather than stating the obvious, and they communicate the developer's thought process very effectively. ✅
-     
-      That way, someone reading your commit messages can understand how the code has evolved without looking at the files themselves. 
       
-      It is not the number of commit messages that is significant, but the quality of the commit messages. 
+      It is not the number of commit messages that is significant, but the quality of the commit messages. ✅
       
       Please include a valid link and a screenshot of the deployed application in your application README.md file. 
       
