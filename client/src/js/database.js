@@ -39,12 +39,13 @@ export const putDb = async (content) => {
 // GET Db to recieve the text information
 export const getDb = async (content) => {
 
-  const id = 1;
   console.log('GET from the database');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
-  const request = store.get({ id: 1, text: content });
+  // * In the file "client\src\js\database.js", when retrieving data from the "getDb" method, retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument.
+  const request = store.tx.objectStore('jate', 1);
+  //const request = store.get({ id: 1, text: content });
   const result = await request;
   result
     ? console.log('Data retrieved from the database', result.text)

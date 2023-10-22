@@ -6,11 +6,11 @@ For deployment related errors you can check the Heroku logs to identify the root
   
 When your application was loaded in the browser, there were multiple errors in the Chrome Developer Tools console:"GET http://../assets/icons/icon_96x96.png 404 (Not Found)" 
  
-"Uncaught (in promise) TypeError: Failed to execute 'get' on 'IDBObjectStore': 1 argument required, but only 0 present".
+"Uncaught (in promise) TypeError: Failed to execute 'get' on 'IDBObjectStore': 1 argument required, but only 0 present". ✅
 
 The "icon" in the top-right corner of the page was missing.
  
-The generated manifest.json file had errors.
+The generated manifest.json file had errors. ✅
  
 In the console.log statement, you are printing the value stored in the object store. Good job! When retrieving data from the "getDb" method, it would be a good idea to retrieve specific data by ID value from the "objectStore" instead of calling the "get" method without argument(line #45). ✅
    
