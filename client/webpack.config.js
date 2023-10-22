@@ -57,7 +57,7 @@ module.exports = () => {
         inject: true,
         icons: [
           {
-            src: path.resolve('client/src/images/logo.png'),
+            src: path.resolve('src/images/logo.png'),
             // This gives options to multiple sizes upon shinking the window
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons')
