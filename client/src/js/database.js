@@ -37,7 +37,7 @@ export const putDb = async (content) => {
 
 
 // GET Db to recieve the text information
-export const getDb = async () => {
+export const getDb = async (content) => {
 
   const id = 1;
   console.log('GET from the database');
